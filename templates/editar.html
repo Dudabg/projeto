@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+     <title>Editar produto</title>
+     
+</head>
+
+<body id="body-editar">
+
+    <div class="body-editar">
+
+        <h1 id="editar-titulo">Editar produto</h1>
+
+
+        {% if mensagem %}
+        <p>{{ mensagem }}</p>
+        {% endif %}
+
+
+        <form action="{{ url_for('editar', id=produto_id) }}" method="post">
+            <div class="row-editar">
+                <div class="col-editar">
+                    <input type="text" name="nome" id="nome" placeholder="Nome" class="form-control-editar" value="{{ produto.nome }}">
+                </div>
+
+
+                <div class="col-editar">
+                    <input type="text" name="descricao" id="descricao" placeholder="Descrição" class="form-control-editar" value="{{ produto.descricao }}">
+                </div>
+
+
+                <div class="col-editar">
+                    <input type="text" name="preco" id="preco" placeholder="Preço" class="form-control-editar" value="{{ produto.preco }}">
+                </div>
+
+
+            </div>
+
+
+            <div class="button-row-editar">
+                <button type="submit" class="btn btn-block btn-success-editar">Enviar alterações</button>
+            </div>
+
+            
+        </form>
+    </div>
+</body>
+</html>

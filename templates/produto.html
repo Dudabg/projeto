@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Produtos</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/style.css"> <!-- Seu arquivo CSS personalizado -->
+    
+</head>
+<body class="body_produto">
+    <div class="container_produtos">
+       
+        
+        <h1>Lista de Produtos</h1> 
+        <a class="botao-logout" href="/">Logout</a>
+        
+       
+        <a class="botao-criar" href="/criar">Criar novo produto</a>
+        
+        <table class="table">
+            <thead>
+               <tr>
+                <th>Nome</th>
+                <th>Descrição</th>
+                <th>Preço</th>
+                <th>Ações</th>
+               </tr>
+            </thead>
+
+
+            <tbody>
+                {% for produto in produtos %}
+                <tr>
+                    <td>{{ produto.nome }}</td>
+                    <td>{{ produto.descricao }}</td>
+                    <td>{{ produto.preco }}</td>
+
+
+                    <td class="actions">
+                        <button class="botao1"><span><a class="botao-deletar" href="/deletar_produto/{{ produto.idproduto }}">Deletar</a></span></button>
+                        <button class="botao2"><span><a class="botao-editar" href="/editar/{{ produto.idproduto }}">Editar</a></span></button>
+ 
+                    </td>
+                </tr>
+
+                {% endfor %}
+    
+            </tbody>
+        </table>
+        
+        </div>
+        
+    </div>
+</body>
+</html>
